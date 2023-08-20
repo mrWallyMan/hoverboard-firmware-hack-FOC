@@ -133,8 +133,8 @@
    Outputs:
     - cmdL and cmdR: normal driving INPUT_MIN to INPUT_MAX
 */
-#define COM_CTRL        0               // [-] Commutation Control Type
-#define SIN_CTRL        1               // [-] Sinusoidal Control Type
+//#define COM_CTRL        0               // [-] Commutation Control Type
+//#define SIN_CTRL        1               // [-] Sinusoidal Control Type
 #define FOC_CTRL        2               // [-] Field Oriented Control (FOC) Type
 
 #define OPEN_MODE       0               // [-] OPEN mode
@@ -220,8 +220,8 @@
  * when activated, it maintains the current speed by switching to SPD_MODE. Acceleration is still possible via the input request, but when released it resumes to previous set speed.
  * when deactivated, it returns to previous control MODE and follows the input request.
 */
- #define CRUISE_CONTROL_SUPPORT
- #define SUPPORT_BUTTONS_LEFT              // Use button1 (Blue Left cable)  to activate/deactivate Cruise Control
+// #define CRUISE_CONTROL_SUPPORT
+// #define SUPPORT_BUTTONS_LEFT              // Use button1 (Blue Left cable)  to activate/deactivate Cruise Control
 // #define SUPPORT_BUTTONS_RIGHT             // Use button1 (Blue Right cable) to activate/deactivate Cruise Control
 
 // ######################### END OF CRUISE CONTROL SETTINGS ##########################
@@ -283,7 +283,7 @@
  * - turn the potis to maximum position, write value in1 to PRI_INPUT1 MAX and value in2 to PRI_INPUT2 MAX
  * - for middle resting potis: Let the potis in the middle resting position, write value in1 to PRI_INPUT1 MID and value in2 to PRI_INPUT2 MID
 */
-  #define CONTROL_ADC           0         // use ADC as input. Number indicates priority for dual-input. Disable CONTROL_SERIAL_USART2, FEEDBACK_SERIAL_USART2, DEBUG_SERIAL_USART2!
+  //#define CONTROL_ADC           0         // use ADC as input. Number indicates priority for dual-input. Disable CONTROL_SERIAL_USART2, FEEDBACK_SERIAL_USART2, DEBUG_SERIAL_USART2!
 
   // #define DUAL_INPUTS                     //  ADC*(Primary) + UART(Auxiliary). Uncomment this to use Dual-inputs
   #define PRI_INPUT1            3, 0, 0, 4095, 0      // TYPE, MIN, MID, MAX, DEADBAND. See INPUT FORMAT section
@@ -341,14 +341,14 @@
 
 
 // ################################# VARIANT_NUNCHUK SETTINGS ############################
-#ifdef VARIANT_NUNCHUK
+//#ifdef VARIANT_NUNCHUK
   /* on Right sensor cable
    * keep cable short, use shielded cable, use ferrits, stabalize voltage in nunchuk,
    * use the right one of the 2 types of nunchuks, add i2c pullups.
    * use original nunchuk. most clones does not work very well.
    * Recommendation: Nunchuk Breakout Board https://github.com/Jan--Henrik/hoverboard-breakout
   */
-  #define CONTROL_NUNCHUK         0       // use nunchuk as input. Number indicates priority for dual-input. Disable FEEDBACK_SERIAL_USART3, DEBUG_SERIAL_USART3!
+ // #define CONTROL_NUNCHUK         0       // use nunchuk as input. Number indicates priority for dual-input. Disable FEEDBACK_SERIAL_USART3, DEBUG_SERIAL_USART3!
 
   // #define DUAL_INPUTS                     // Nunchuk*(Primary) + UART(Auxiliary). Uncomment this to use Dual-inputs
   #define PRI_INPUT1              2, -1024, 0, 1024, 0     // TYPE, MIN, MID, MAX, DEADBAND. See INPUT FORMAT section
@@ -460,7 +460,7 @@
 /* CONTROL VIA RC REMOTE WITH FLYSKY IBUS PROTOCOL 
 * Connected to Right sensor board cable. Channel 1: steering, Channel 2: speed.
 */
-  #define CONTROL_IBUS                    // use IBUS as input. Number indicates priority for dual-input.
+  //#define CONTROL_IBUS                    // use IBUS as input. Number indicates priority for dual-input.
   #define IBUS_NUM_CHANNELS       14      // total number of IBUS channels to receive, even if they are not used.
   #define IBUS_LENGTH             0x20
   #define IBUS_COMMAND            0x40
@@ -625,9 +625,9 @@
    #define STANDSTILL_HOLD_ENABLE     // [-] Flag to hold the position when standtill is reached. Only available and makes sense for VOLTAGE or TORQUE mode.
 
   #ifdef CONTROL_PWM_RIGHT
-    #define DEBUG_SERIAL_USART2         // left sensor cable debug
+   #define DEBUG_SERIAL_USART2         // left sensor cable debug
   #else
-    #define DEBUG_SERIAL_USART3         // right sensor cable debug
+   // #define DEBUG_SERIAL_USART3         // right sensor cable debug
   #endif
 #endif
 // ############################# END OF VARIANT_SKATEBOARD SETTINGS ############################
